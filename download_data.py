@@ -11,9 +11,9 @@ def obter_dados_covid():
         "is_last": "false",
         "format": "json",
 }
-    resp = requests.get(BASE, params=params, timeout=30)
-    resp.raise_for_status()
-    data = resp.json()
+    resp = requests.get(BASE, params=params, timeout=30) #requisição HTTP
+    resp.raise_for_status() #checa se houve algum erro
+    data = resp.json() #converte JSON para python
     df = pd.DataFrame(data["results"]) #transformar registros em dataframe
     print("Registros baixados:", len(df))
 
